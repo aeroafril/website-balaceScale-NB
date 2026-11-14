@@ -1,16 +1,15 @@
 import os
 from flask import Flask, render_template, request, jsonify
 import joblib
-import numpy as np
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-modelPath = os.path.join(basedir, 'model', 'modelDBS-knn.pkl')
+modelPath = os.path.join(basedir, 'model', 'modelDBS-NB.pkl')
 
 try:
-    knnModel = joblib.load(modelPath)
-    print("Model Knn berhasil dimuat")
+    NBModel = joblib.load(modelPath)
+    print("Model naive bayes berhasil dimuat")
 except Exception as e:
     print(f"Gagal memuat model: {e}")
 
@@ -36,7 +35,7 @@ def predict():
 
         features = [[lw, ld, rw, rd]]
 
-        prediction = knnModel.predict(features)
+        prediction = NBModel.predict(features)
         hasilPrediksi = str(prediction[0])
 
         deskripsiHasil = labelBalance.get(hasilPrediksi, str(hasilPrediksi))

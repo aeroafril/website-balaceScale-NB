@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+:root{
+    --orangeBlack: #130501;
+    --spingGreen: #89da9e;
+    --poppy: #ff420e;
+    --petal: #f98866;
+    --stem: #80bd9e;
+}
+
+.lilita-one-regular {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body{
+    font-family: sans-serif;
+    background-color: var(--stem);
+    margin: 0;
+    padding: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h2{
+    text-align: center;
+    font-size: 50px;
+    color: var(--orangeBlack);
+    grid-column: span 2;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+input{
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 2px solid var(--orangeBlack);
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    color: var(--orangeBlack);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus{
+    border: 2px solid var(--poppy);
+}
+
+.button{
+    display: flex;
+    margin: 0 2px;
+    padding: 4px;
+    gap: 20px;
+    width: 250px;
+}
+
+.button #reset{
+    cursor: pointer;
+    color: var(--orangeBlack);
+    background-color: var(--stem);
+    border: 2px solid var(--orangeBlack);
+}
+
+.button #reset:hover{
+    background-color: var(--poppy);
+}
+
+.button #submit{
+    cursor: pointer;
+    color: var(--orangeBlack);
+    background-color: var(--poppy);
+    border: 2px solid var(--orangeBlack);
+}
+
+.button #submit:hover{
+    background-color: var(--stem);
+}
+
+#hasil{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--spingGreen);
+    font-weight: bold;
+    grid-column: span 2;
+}
+
+@media (max-width: 768px){
+    body{
+        align-items: flex-start;
+        padding: 30px 0;
+    }
+
+    h2{
+        font-size: 40px;
+    }
+
+    form{
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .button{
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px){
+    body{
+        padding: 20px 10px;
+        align-items: flex-start;
+    }
+
+    h2{
+        transform: translateY(50%);
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    form{
+        padding: 0 8px;
+    }
+}
